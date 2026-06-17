@@ -10,15 +10,7 @@ body {
     padding: 100px 20px;
 }
 
-.logo {
-    width: 180px !important;
-    height: 180px !important;
-    max-width: none !important;
-    max-height: none !important;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 20px auto;
-}
+<img id="logo" src="" style="width:180px;height:180px;object-fit:cover;">
 
 h1 {
     font-size: 6rem;
