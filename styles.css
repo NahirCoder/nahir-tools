@@ -48,6 +48,7 @@ body {
     color: #dddddd;
 }
 
+/* CONTACT */
 .contact {
     text-align: center;
     padding: 30px 20px;
@@ -66,14 +67,17 @@ body {
     border-radius: 6px;
     font-weight: bold;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .contact-btn:hover {
     opacity: 0.9;
 }
 
+/* MESSAGE UNDER BUTTON */
 .email-text {
     margin-top: 15px;
+    color: #cccccc;
 }
 
 .email-text a {
@@ -81,6 +85,7 @@ body {
     text-decoration: none;
 }
 
+/* PORTFOLIO */
 #list {
     text-align: center;
 }
@@ -89,16 +94,6 @@ body {
     margin-bottom: 35px;
 }
 
-.project-url {
-    word-break: break-all;
-    color: #bbbbbb;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid #333;
-    margin-top: 25px;
-}
 .project-link {
     color: orange;
     text-decoration: none;
@@ -107,4 +102,10 @@ hr {
 
 .project-link:hover {
     text-decoration: underline;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin-top: 25px;
 }
