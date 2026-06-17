@@ -7,7 +7,7 @@ body {
 
 .hero {
     text-align: center;
-    padding: 40px 20px 20px 20px; /* reduced top space */
+    padding: 30px 20px 20px;
 }
 
 .logo {
@@ -15,10 +15,10 @@ body {
     height: 180px;
     object-fit: cover;
     display: block;
-    margin: 0 auto 10px auto;
+    margin: 0 auto 10px;
 }
 
-h1 {
+#name {
     font-size: 6rem;
     font-weight: 600;
     letter-spacing: 2px;
@@ -28,53 +28,74 @@ h1 {
 #slogan {
     font-size: 2.5rem;
     letter-spacing: 1px;
-    color: #ccc;
-    margin-top: 5px;
+    color: #cccccc;
+    margin-top: 8px;
 }
 
-/* Sections */
 .section {
     max-width: 900px;
     margin: auto;
-    padding: 50px 20px; /* reduced gap */
+    padding: 40px 20px;
     text-align: center;
 }
 
-.section.tight {
-    padding-top: 20px;
-    padding-bottom: 20px;
+.tight {
+    padding-top: 10px;
 }
 
 .section p {
-    line-height: 1.6;
-    font-size: 1.1rem;
-    color: #ddd;
+    line-height: 1.7;
+    color: #dddddd;
 }
 
-/* Contact */
 .contact {
     text-align: center;
     padding: 30px 20px;
 }
 
 .order-text {
-    margin-bottom: 10px;
-    color: #ccc;
+    margin-bottom: 15px;
 }
 
-/* Orange button */
-button {
+.contact-btn {
+    display: inline-block;
     background: orange;
     color: black;
-    border: none;
+    text-decoration: none;
     padding: 15px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
     border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
-/* Portfolio */
-#list div {
-    margin-bottom: 30px;
+.contact-btn:hover {
+    opacity: 0.9;
+}
+
+.email-text {
+    margin-top: 15px;
+}
+
+.email-text a {
+    color: orange;
+    text-decoration: none;
+}
+
+#list {
+    text-align: center;
+}
+
+.project {
+    margin-bottom: 35px;
+}
+
+.project-url {
+    word-break: break-all;
+    color: #bbbbbb;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin-top: 25px;
 }
