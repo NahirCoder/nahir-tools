@@ -99,3 +99,12 @@ hr {
     border-top: 1px solid #333;
     margin-top: 25px;
 }
+.project-link {
+    color: orange;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
