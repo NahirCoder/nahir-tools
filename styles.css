@@ -1,11 +1,59 @@
 body {
+    margin: 0;
     background: black;
     color: white;
-    text-align: center;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
 }
 
-#logo {
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.logo {
     width: 140px;
     height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+#slogan {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.section {
+    max-width: 900px;
+    margin: auto;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #ddd;
+}
+
+.contact {
+    text-align: center;
+    padding: 40px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
 }
