@@ -1,7 +1,11 @@
-fetch("/api")
-.then(r => r.json())
-.then(data => {
+document.addEventListener("DOMContentLoaded", async () => {
 
+    const res = await fetch("/api");
+    const data = await res.json();
+
+    console.log("API:", data);
+
+    // SITE
     document.getElementById("name").textContent = data.site?.Name || "";
     document.getElementById("slogan").textContent = data.site?.Slogan || "";
 
@@ -9,23 +13,27 @@ fetch("/api")
         document.getElementById("logo").src = data.site.Logo[0].url;
     }
 
-    const list = document.getElementById("list");
+    // PORTFOLIO
+    const container = document.getElementById("list") || document.getElementById("portfolio");
 
-    (data.websites || []).forEach(w => {
-        const f = w.fields;
+    if (container) {
+        container.innerHTML = "";
 
-        const div = document.createElement("div");
-        div.innerHTML = `
-            <h3>${f["Website Name"]}</h3>
-            <p>${f.Comment}</p>
-            <a href="${f["Website URL"]}" target="_blank">Visit</a>
-        `;
+        data.websites.forEach(item => {
+            const f = item.fields;
 
-        list.appendChild(div);
-    });
+            const div = document.createElement("div");
+
+            div.innerHTML = `
+                <h3>${f["Website Name"]}</h3>
+                <p>${f.Comment}</p>
+                <p>⭐ ${f.Stars}/5</p>
+                <a href="${f["Website URL"]}" target="_blank">Visit</a>
+                <hr>
+            `;
+
+            container.appendChild(div);
+        });
+    }
 
 });
-
-document.getElementById("contact").onclick = () => {
-    window.location.href = "mailto:nahirtools@gmail.com";
-};
