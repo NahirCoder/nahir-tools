@@ -13,8 +13,8 @@ body {
 <img id="logo" src="" style="width:180px;height:180px;object-fit:cover;">
 
 #name {
-    font-size: 6rem !important;
-    font-weight: 600 !important;
+    font-size: 6rem important;
+    font-weight: 600 important;
     letter-spacing: 2px !important;
     margin: 0;
     line-height: 1.1;
