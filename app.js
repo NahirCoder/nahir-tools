@@ -1,46 +1,59 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-    // CONTACT BUTTON (FIXED)
-    document.getElementById("contactBtn").addEventListener("click", () => {
-        // WhatsApp-style action via email (or replace with WhatsApp if needed)
-        window.location.href = "mailto:nahirtools@gmail.com?subject=Website Order";
-    });
+    try {
 
-    const res = await fetch("/api");
-    const data = await res.json();
+        const res = await fetch("/api");
+        const data = await res.json();
 
-    // SITE
-    document.getElementById("name").textContent = data.site?.Name || "";
-    document.getElementById("slogan").textContent = data.site?.Slogan || "";
+        console.log("API:", data);
 
-    if (data.site?.Logo?.[0]?.url) {
-        document.getElementById("logo").src = data.site.Logo[0].url;
+        // Site Settings
+        document.getElementById("name").textContent =
+            data.site?.Name || "";
+
+        document.getElementById("slogan").textContent =
+            data.site?.Slogan || "";
+
+        if (data.site?.Logo?.[0]?.url) {
+            document.getElementById("logo").src =
+                data.site.Logo[0].url;
+        }
+
+        // Portfolio
+        const container = document.getElementById("list");
+        container.innerHTML = "";
+
+        (data.websites || []).forEach(item => {
+
+            const f = item.fields;
+
+            const div = document.createElement("div");
+            div.className = "project";
+
+            div.innerHTML = `
+                <p><strong>Visit the website I made</strong></p>
+
+                <h3>${f["Website Name"] || ""}</h3>
+
+                <p class="project-url">
+                    ${f["Website URL"] || ""}
+                </p>
+
+                <p>⭐ ${f.Stars || 0}/5</p>
+
+                <p>
+                    <strong>Comment by owner:</strong>
+                    ${f.Comment || ""}
+                </p>
+
+                <hr>
+            `;
+
+            container.appendChild(div);
+        });
+
+    } catch (error) {
+        console.error(error);
     }
-
-    // PORTFOLIO
-    const container = document.getElementById("list");
-    container.innerHTML = "";
-
-    (data.websites || []).forEach(item => {
-        const f = item.fields;
-
-        const div = document.createElement("div");
-
-        div.innerHTML = `
-            <p><b>Visit the website I made</b></p>
-
-            <h3>${f["Website Name"]}</h3>
-
-            <p>${f["Website URL"]}</p>
-
-            <p>⭐ ${f.Stars}/5</p>
-
-            <p><b>Comment by owner:</b> ${f.Comment}</p>
-
-            <hr>
-        `;
-
-        container.appendChild(div);
-    });
 
 });
