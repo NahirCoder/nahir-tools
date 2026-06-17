@@ -1,5 +1,35 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
+    // CONTACT BUTTON
+    const contactBtn = document.getElementById("contactBtn");
+    const contactMessage = document.getElementById("contactMessage");
+
+    contactBtn.addEventListener("click", () => {
+
+        const isMobile =
+            /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+                navigator.userAgent
+            );
+
+        if (isMobile) {
+
+            window.location.href =
+                "mailto:nahirtools@gmail.com?subject=Website%20Order";
+
+        } else {
+
+            const gmailUrl =
+                "https://mail.google.com/mail/?view=cm&fs=1&to=nahirtools@gmail.com&su=Website%20Order";
+
+            const popup = window.open(gmailUrl, "_blank");
+
+            if (!popup) {
+                contactMessage.textContent =
+                    "Please Sign In To Your Email Address To Contact";
+            }
+        }
+    });
+
     try {
 
         const res = await fetch("/api");
@@ -7,7 +37,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         console.log("API:", data);
 
-        // Site Settings
         document.getElementById("name").textContent =
             data.site?.Name || "";
 
@@ -19,7 +48,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 data.site.Logo[0].url;
         }
 
-        // Portfolio
         const container = document.getElementById("list");
         container.innerHTML = "";
 
