@@ -59,22 +59,29 @@ document.addEventListener("DOMContentLoaded", async () => {
             div.className = "project";
 
             div.innerHTML = `
-                <p><strong>Visit the website I made</strong></p>
+    <p><strong>Visit the website I made</strong></p>
 
-                <h3>${f["Website Name"] || ""}</h3>
+    <h3>${f["Website Name"] || ""}</h3>
 
-                <p class="project-url">
-                    ${f["Website URL"] || ""}
-                </p>
+    <p>
+        <a
+            class="project-link"
+            href="${f["Website URL"] || "#"}"
+            target="_blank"
+        >
+            ${f["Website URL"] || ""}
+        </a>
+    </p>
 
-                <p>⭐ ${f.Stars || 0}/5</p>
+    <p>⭐ ${f.Stars || 0}/5</p>
 
-                <p>
-                    <strong>Comment by owner:</strong>
-                    ${f.Comment || ""}
-                </p>
+    <p>
+        <strong>Comment by owner:</strong>
+        ${f.Comment || ""}
+    </p>
 
-                <hr>
+    <hr>
+`;
             `;
 
             container.appendChild(div);
