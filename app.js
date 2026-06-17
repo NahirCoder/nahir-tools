@@ -1,17 +1,15 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-    // CONTACT BUTTON (WORKING)
+    // CONTACT BUTTON (FIXED)
     document.getElementById("contactBtn").addEventListener("click", () => {
-        window.location.href = "mailto:nahirtools@gmail.com";
+        // WhatsApp-style action via email (or replace with WhatsApp if needed)
+        window.location.href = "mailto:nahirtools@gmail.com?subject=Website Order";
     });
 
-    // AIRTABLE DATA
     const res = await fetch("/api");
     const data = await res.json();
 
-    console.log(data);
-
-    // SITE INFO
+    // SITE
     document.getElementById("name").textContent = data.site?.Name || "";
     document.getElementById("slogan").textContent = data.site?.Slogan || "";
 
@@ -29,10 +27,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         const div = document.createElement("div");
 
         div.innerHTML = `
+            <p><b>Visit the website I made</b></p>
+
             <h3>${f["Website Name"]}</h3>
-            <p>${f.Comment}</p>
+
+            <p>${f["Website URL"]}</p>
+
             <p>⭐ ${f.Stars}/5</p>
-            <a href="${f["Website URL"]}" target="_blank">Visit</a>
+
+            <p><b>Comment by owner:</b> ${f.Comment}</p>
+
             <hr>
         `;
 
